@@ -37,8 +37,8 @@ importers:
         version: 4.1.11
     devDependencies:
       '@area44/biome-config':
-        specifier: ^2.2.2
-        version: 2.2.2
+        specifier: ^2.2.5
+        version: 2.2.5
       '@biomejs/biome':
         specifier: ^2.1.1
         version: 2.1.1
@@ -71,9 +71,8 @@ packages:
   '@antfu/utils@8.1.0':
     resolution: {integrity: sha512-XPR7Jfwp0FFl/dFYPX8ZjpmU4/1mIXTjnZ1ba48BLMyKOV62/tiRjdsFcPs2hsYcSud4tzk7w3a3LjX8Fu3huA==}
 
-  '@area44/biome-config@2.2.2':
-    resolution: {integrity: sha512-aYo4AExsk0cgt9/pJ3Xe+TBGjdwRQAZxtMd9XyXGCrglSj6SKrHHcj/QEzRV+4EGNEOUmg3YjueDZBWQHbXJ8g==}
-    engines: {node: '>=22.17.0'}
+  '@area44/biome-config@2.2.5':
+    resolution: {integrity: sha512-XuidO02XVOl3rt+msTWHBv9ILsS8MgMTNIJbAvldsCQWoxgA1cihZvCnEf5cVwPEJf5xqiyYVsCQzgGOFC2Y6A==}
 
   '@biomejs/biome@2.1.1':
     resolution: {integrity: sha512-HFGYkxG714KzG+8tvtXCJ1t1qXQMzgWzfvQaUjxN6UeKv+KvMEuliInnbZLJm6DXFXwqVi6446EGI0sGBLIYng==}
@@ -2240,7 +2239,7 @@ snapshots:
 
   '@antfu/utils@8.1.0': {}
 
-  '@area44/biome-config@2.2.2': {}
+  '@area44/biome-config@2.2.5': {}
 
   '@biomejs/biome@2.1.1':
     optionalDependencies:

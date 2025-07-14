@@ -3,9 +3,6 @@
 
 @variant dark (&:where(.dark *));
 
-@theme {
-}
-
 body {
   font-feature-settings:
     "rlig" 1,

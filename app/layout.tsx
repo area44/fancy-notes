@@ -1,7 +1,7 @@
-import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import type { Metadata } from "next";
 import { Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
+import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import "./globals.css";
 
 export const metadata: Metadata = {
