@@ -1,31 +1,21 @@
-// app/layout.tsx
 import type { Metadata } from "next";
 import { Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import "./globals.css";
 
-export async function generateMetadata({
-  params,
-}: {
-  params?: { slug?: string };
-}): Promise<Metadata> {
-  const title = params?.slug
-    ? decodeURIComponent(params.slug)
-    : "Fancy Notes - All kinds of interesting topics.";
+export async function generateMetadata({ params }: { params?: { slug?: string } }): Promise<Metadata> {
+  const slug = params?.slug ?? "";
+  const title = slug ? decodeURIComponent(slug) : "Fancy Notes";
+  const baseUrl = "https://fancy-notes.vercel.app";
+  const url = slug ? `${baseUrl}/${slug}` : baseUrl;
 
   return {
-    metadataBase: new URL("https://fancy-notes.vercel.app"),
-    generator: "Next.js",
-    applicationName: "Fancy Notes",
-    appleWebApp: { title: "Fancy Notes" },
-    title: {
-      default: "Fancy Notes - All kinds of interesting topics.",
-      template: "%s | Fancy Notes",
-    },
+    title,
     description: "Fancy notes about all kinds of interesting topics.",
-    icons: { icon: "/favicon.ico" },
+    metadataBase: new URL(baseUrl),
     openGraph: {
+      url, // 👈 this sets og:url
       siteName: "Fancy Notes",
       locale: "en_US",
       type: "website",
@@ -39,11 +29,9 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      site: "https://fancy-notes.vercel.app",
       card: "summary_large_image",
       images: [`/og?title=${encodeURIComponent(title)}`],
     },
-    other: { "msapplication-TileColor": "#fff" },
   };
 }
 
