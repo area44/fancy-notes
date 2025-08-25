@@ -2,7 +2,7 @@ import { Callout } from "nextra/components";
 
 # Git – Tips & Tricks
 
-## 🆕 Start a New Git Repository
+## Start a New Git Repository
 
 Initialize and push a new Git repository:
 
@@ -15,9 +15,7 @@ git remote add origin https://github.com/OWNER/REPOSITORY
 git push -u origin main         # Push to remote main
 ````
 
----
-
-## 🔗 Change the Remote Repository URL
+## Change the Remote Repository URL
 
 Update an existing remote URL:
 
@@ -25,9 +23,7 @@ Update an existing remote URL:
 git remote set-url origin https://github.com/OWNER/REPOSITORY
 ```
 
----
-
-## 🧹 Cleanup & Optimize a Git Repository
+## Cleanup & Optimize a Git Repository
 
 Free up space and optimize Git internals:
 
@@ -36,9 +32,7 @@ git reflog expire --all --expire=now
 git gc --prune=now --aggressive
 ```
 
----
-
-## 🧬 Clone All GitHub Repositories (User or Org)
+## Clone All GitHub Repositories (User or Org)
 
 Works on **Windows**, **macOS**, or **Linux** using **Git Bash**:
 
@@ -58,9 +52,7 @@ curl "https://api.github.com/$CNTX/OWNER/repos?page=$PAGE&per_page=100" |
   GitHub API limits results to 100 per page. Increase the <code>PAGE</code> variable to fetch all repositories across multiple pages.
 </Callout>
 
----
-
-## 🗑️ Delete a Branch in Git
+## Delete a Branch in Git
 
 ### Delete a **local** branch:
 
@@ -77,9 +69,7 @@ git push origin --delete branch_name
 
 This command tells Git to delete the branch from the remote repository (like GitHub or GitLab).
 
----
-
-## 📚 Resources
+## Resources
 
 * [GitHub Docs](https://docs.github.com/en)
 * [Git Cheat Sheet (PDF)](https://education.github.com/git-cheat-sheet-education.pdf)
