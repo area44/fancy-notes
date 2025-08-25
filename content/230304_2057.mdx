@@ -8,19 +8,19 @@ import { Steps } from "nextra/components";
 Follow these simple steps to download a view-only protected PDF from Google Drive using Chrome browser:
 
 <Steps>
-### Step 1
+{<h3>Step 1</h3>}
 
 Open the PDF file in your Chrome browser. Wait for the file to load completely, then scroll to the bottom of the page.
 
 ![Step 1](/assets/230304_2057/01.png)
 
-### Step 2
+{<h3>Step 2</h3>}
 
 Open the **Developer Console** by pressing `Ctrl` + `Shift` + `C` (`F12`) on Windows or `Cmd` + `Shift` + `C` on Mac. Then, click the **Console** tab.
 
 ![Step 2](/assets/230304_2057/02.png)
 
-### Step 3
+{<h3>Step 3</h3>}
 
 Paste the following script into the **Developer Console** and press `Enter`:
 
@@ -53,7 +53,7 @@ document.body.appendChild(jspdf);
 
 ![Step 3](/assets/230304_2057/03.png)
 
-### Step 4
+{<h3>Step 4</h3>}
 
 Once the process is complete, the PDF file will be automatically downloaded.
 
@@ -66,26 +66,26 @@ Once the process is complete, the PDF file will be automatically downloaded.
 The simple JavaScript method works well for basic PDFs, but if you're dealing with large or complex PDFs, the download might not work as expected. For better quality and handling of complex PDFs, try the advanced method.
 
 <Steps>
-### Step 1
+{<h3>Step 1</h3>}
 
 Download the [Google Drive PDF Downloader](https://github.com/zeltox/Google-Drive-PDF-Downloader/archive/refs/heads/master.zip) file and extract its contents. Open the `Method_1_Script.js` file, copy the script inside, and paste it into the **Developer Console**, then press `Enter`.
 
 ![Step 1](/assets/230304_2057/05.png)
 
-### Step 2
+{<h3>Step 2</h3>}
 
 After a few seconds, the browser will prompt you to save a file with the `.PDF_DataFile` extension. Save the file and move it to the `Input` directory located inside the folder you downloaded.
 
 ![Step 2](/assets/230304_2057/06.png)
 ![Step 2](/assets/230304_2057/07.png)
 
-### Step 3
+{<h3>Step 3</h3>}
 
 If you're using **Windows**, navigate to the `Windows` folder and double-click on `GeneratePDF.cmd`. For **Linux**, go to the `Linux` folder and execute `GeneratePDF`.
 
 ![Step 3](/assets/230304_2057/08.png)
 
-### Step 4
+{<h3>Step 4</h3>}
 
 Once the process is complete, you’ll see a success message. Check the `Output` folder to find the downloaded PDF.
 

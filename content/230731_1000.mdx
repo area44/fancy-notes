@@ -2,9 +2,7 @@
 
 Regular expressions (regex or regexp) are patterns used to match character combinations in strings.
 
----
-
-## 🔗 Anchors
+## Anchors
 
 Anchors match positions within text, not actual characters.
 
@@ -17,9 +15,7 @@ Anchors match positions within text, not actual characters.
 | `\b`       | Word boundary (start or end of a word)         | `\bfox\b`           | the `fox`, red `fox`             | foxtrot, foxskin        |
 | `\B`       | Not a word boundary                            | `\Bee\B`            | tr`ee`s, b`ee`f                   | bee, tree               |
 
----
-
-## 🔤 Character Types
+## Character Types
 
 Match specific categories of characters.
 
@@ -34,9 +30,7 @@ Match specific categories of characters.
 | `\S`       | Non-whitespace                      | `\See\S`            | tr`ees`, `beef`                | tall tree, bee stung     |
 | `\x`       | Escaped metacharacter (e.g. `\.`)   | `\.`                | `.` (literal dot)              | dot                      |
 
----
-
-## 🧱 Character Classes
+## Character Classes
 
 Define a set of characters or ranges to match.
 
@@ -47,9 +41,7 @@ Define a set of characters or ranges to match.
 | `[^xy]`    | Not any character in set         | `gr[^ea]y`          | `gruy`              | gray, grey          |
 | `[\^-]`    | Match a literal `^` or `-`       | `4[\^.-]\d`         | `4^3`, `4-2`        | `44`, `23`          |
 
----
-
-## 🔁 Repetition
+## Repetition
 
 Match characters repeated a number of times.
 
@@ -63,9 +55,7 @@ Match characters repeated a number of times.
 | `x{m,n}`   | Between m and n                        | `12{1,3}3`         | `123`, `1223`       | `15335`, `1222223`  |
 | `x+?`      | Lazy match (as few as possible)        | `re+?`             | `re`, `ree`         | `reel`, `reeee`     |
 
----
-
-## 🎯 Groups, Alternation & Backreferences
+## Groups, Alternation & Backreferences
 
 Group patterns, name them, or refer back to them.
 
@@ -78,9 +68,7 @@ Group patterns, name them, or refer back to them.
 | `\1`            | Backreference to group 1                | `(b)(\w*)\1`            | `bob`, `brib`                  | bear, bib               |
 | `\k<name>`      | Named backreference                     | `(?<x>5)\d*\k<x>`       | `51245`, `55`                  | 523, 51                 |
 
----
-
-## 🔍 Lookaround
+## Lookaround
 
 Match based on what’s *before* or *after*, without capturing it.
 
@@ -91,9 +79,7 @@ Match based on what’s *before* or *after*, without capturing it.
 | `(?<=x)`   | Positive lookbehind                    | `(?<=tr)a`            | `trail`, `track`    | `streak`, `bear`    |
 | `(?<!x)`   | Negative lookbehind                    | `(?<!tr)a`            | `bear`, `stare`     | `trail`, `strain`   |
 
----
-
-## 🛠️ Modifiers and Literals
+## Modifiers and Literals
 
 Control the behavior of the pattern engine.
 
@@ -105,9 +91,7 @@ Control the behavior of the pattern engine.
 | `(?s)...(?-s)`    | Dot matches newline (DOTALL)                 | `(?s)first.*third(?-s)`           | includes `\n`              | multiline mismatch       |
 | `(?m)^...$`       | Multiline mode for `^` and `$`               | `^eat and sleep$`                | full line matches          | mid-line only            |
 
----
-
-## 🌐 Unicode & Graphemes
+## Unicode & Graphemes
 
 Work with extended character sets, including emoji and accents.
 
@@ -116,9 +100,7 @@ Work with extended character sets, including emoji and accents.
 | `\X`       | Match one grapheme cluster            | `\X\X` on `🇺🇸`            | full emoji flag  | half emoji      |
 | `\uXXXX`   | Unicode character by code point       | `\u00e8` or `\u0065\u0300` | `è`              | `e`             |
 
----
-
-## 📚 Resources
+## Resources
 
 - [Datacamp Regex Cheat Sheet](https://www.datacamp.com/cheat-sheet/regular-expresso)
 - [Regex101 (Live Tester)](https://regex101.com/)
