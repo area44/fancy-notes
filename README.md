@@ -1,10 +1,8 @@
-![banner](./public/og.svg)
-
 # Fancy Notes!
 
 This is a site collecting useful notes about anything you are finding. It is more than just a note-taking site. It’s a community of learners and doers who value useful notes and want to improve their skills and knowledge. Whether you’re a student, a professional, a hobbyist, or just someone who enjoys learning new things, this site is for you. Join [us](https://github.com/AREA44/fancy-notes) today and start collecting some notes about useful notes!
 
-Fancy Notes is built using [Nextra](https://nextra.site) - a simple, powerful and flexible site generation framework with everything you love from Next.js
+Fancy Notes is built using [Nextra](https://nextra.site) - a simple, powerful and flexible site generation framework with everything you love from Next.js.
 
 ## Local development
 
