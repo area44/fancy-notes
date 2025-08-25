@@ -5,21 +5,15 @@ import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-  description: "Fancy notes about all kinds of interesting topics.",
   metadataBase: new URL("https://fancy-notes.vercel.app"),
   generator: "Next.js",
   applicationName: "Fancy Notes",
-  appleWebApp: {
-    title: "Fancy Notes",
-  },
+  appleWebApp: { title: "Fancy Notes" },
   title: {
     default: "Fancy Notes - All kinds of interesting topics.",
     template: "%s | Fancy Notes",
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
+  icons: { icon: "/favicon.ico" },
   openGraph: {
     siteName: "Fancy Notes",
     locale: "en_US",
@@ -29,17 +23,38 @@ export const metadata: Metadata = {
     site: "https://fancy-notes.vercel.app",
     card: "summary_large_image",
   },
-  other: {
-    "msapplication-TileColor": "#fff",
-  },
+  other: { "msapplication-TileColor": "#fff" },
 };
 
-const logo = (
-  <span className="hidden font-bold sm:inline-block">Fancy Notes</span>
-);
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug?: string };
+}): Promise<Metadata> {
+  const title = params?.slug
+    ? decodeURIComponent(params.slug)
+    : "Fancy Notes";
 
+  return {
+    title,
+    openGraph: {
+      images: [
+        {
+          url: `/og?title=${encodeURIComponent(title)}`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      images: [`/og?title=${encodeURIComponent(title)}`],
+    },
+  };
+}
+
+const logo = <span className="hidden font-bold sm:inline-block">Fancy Notes</span>;
 const footer = <Footer>MIT {new Date().getFullYear()} © AREA44.</Footer>;
-
 const navbar = <Navbar logo={logo} />;
 
 export default async function RootLayout({ children }) {
