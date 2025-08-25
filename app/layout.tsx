@@ -1,43 +1,34 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Head } from "nextra/components";
 import { getPageMap } from "nextra/page-map";
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://fancy-notes.vercel.app"),
-  generator: "Next.js",
-  applicationName: "Fancy Notes",
-  appleWebApp: { title: "Fancy Notes" },
-  title: {
-    default: "Fancy Notes - All kinds of interesting topics.",
-    template: "%s | Fancy Notes",
-  },
-  icons: { icon: "/favicon.ico" },
-  openGraph: {
-    siteName: "Fancy Notes",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    site: "https://fancy-notes.vercel.app",
-    card: "summary_large_image",
-  },
-  other: { "msapplication-TileColor": "#fff" },
-};
-
 export async function generateMetadata({
   params,
 }: {
-  params: { slug?: string };
+  params?: { slug?: string };
 }): Promise<Metadata> {
   const title = params?.slug
     ? decodeURIComponent(params.slug)
-    : "Fancy Notes";
+    : "Fancy Notes - All kinds of interesting topics.";
 
   return {
-    title,
+    metadataBase: new URL("https://fancy-notes.vercel.app"),
+    generator: "Next.js",
+    applicationName: "Fancy Notes",
+    appleWebApp: { title: "Fancy Notes" },
+    title: {
+      default: "Fancy Notes - All kinds of interesting topics.",
+      template: "%s | Fancy Notes",
+    },
+    description: "Fancy notes about all kinds of interesting topics.",
+    icons: { icon: "/favicon.ico" },
     openGraph: {
+      siteName: "Fancy Notes",
+      locale: "en_US",
+      type: "website",
       images: [
         {
           url: `/og?title=${encodeURIComponent(title)}`,
@@ -48,8 +39,11 @@ export async function generateMetadata({
       ],
     },
     twitter: {
+      site: "https://fancy-notes.vercel.app",
+      card: "summary_large_image",
       images: [`/og?title=${encodeURIComponent(title)}`],
     },
+    other: { "msapplication-TileColor": "#fff" },
   };
 }
 
