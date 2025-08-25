@@ -9,19 +9,20 @@ export async function generateMetadata({ params }: { params?: { slug?: string } 
   const title = slug ? decodeURIComponent(slug) : "Fancy Notes";
   const baseUrl = "https://fancy-notes.vercel.app";
   const url = slug ? `${baseUrl}/${slug}` : baseUrl;
+  const ogImage = `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
     description: "Fancy notes about all kinds of interesting topics.",
     metadataBase: new URL(baseUrl),
     openGraph: {
-      url, // 👈 this sets og:url
+      url,
       siteName: "Fancy Notes",
       locale: "en_US",
       type: "website",
       images: [
         {
-          url: `/og?title=${encodeURIComponent(title)}`,
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: title,
@@ -30,10 +31,11 @@ export async function generateMetadata({ params }: { params?: { slug?: string } 
     },
     twitter: {
       card: "summary_large_image",
-      images: [`/og?title=${encodeURIComponent(title)}`],
+      images: [ogImage],
     },
   };
 }
+
 
 const logo = <span className="hidden font-bold sm:inline-block">Fancy Notes</span>;
 const footer = <Footer>MIT {new Date().getFullYear()} © AREA44.</Footer>;
