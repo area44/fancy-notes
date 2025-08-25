@@ -17,7 +17,7 @@ export default async function Page(props) {
   const { wrapper: Wrapper } = useMDXComponents();
 
   return (
-    <Wrapper toc={toc} metadata={metadata}>
+    <Wrapper toc={toc} metadata={metadata} sourceCode={sourceCode}>
       <MDXContent {...props} params={params} />
     </Wrapper>
   );
