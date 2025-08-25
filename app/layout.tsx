@@ -4,42 +4,41 @@ import { getPageMap } from "nextra/page-map";
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  // For more information on metadata API, see: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-  description: "Fancy notes about all kinds of interesting topics.",
-  metadataBase: new URL("https://fancy-notes.vercel.app"),
-  generator: "Next.js",
-  applicationName: "Fancy Notes",
-  appleWebApp: {
-    title: "Fancy Notes",
-  },
-  title: {
-    default: "Fancy Notes - All kinds of interesting topics.",
-    template: "%s | Fancy Notes",
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
-  openGraph: {
-    siteName: "Fancy Notes",
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    site: "https://fancy-notes.vercel.app",
-    card: "summary_large_image",
-  },
-  other: {
-    "msapplication-TileColor": "#fff",
-  },
-};
+export async function generateMetadata({ params }: { params?: { slug?: string } }): Promise<Metadata> {
+  const slug = params?.slug ?? "";
+  const title = slug ? decodeURIComponent(slug) : "Fancy Notes";
+  const baseUrl = "https://fancy-notes.vercel.app";
+  const url = slug ? `${baseUrl}/${slug}` : baseUrl;
+  const ogImage = `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
-const logo = (
-  <span className="hidden font-bold sm:inline-block">Fancy Notes</span>
-);
+  return {
+    title,
+    description: "Fancy notes about all kinds of interesting topics.",
+    metadataBase: new URL(baseUrl),
+    openGraph: {
+      url,
+      siteName: "Fancy Notes",
+      locale: "en_US",
+      type: "website",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [ogImage],
+    },
+  };
+}
 
+
+const logo = <span className="hidden font-bold sm:inline-block">Fancy Notes</span>;
 const footer = <Footer>MIT {new Date().getFullYear()} © AREA44.</Footer>;
-
 const navbar = <Navbar logo={logo} />;
 
 export default async function RootLayout({ children }) {
