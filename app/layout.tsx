@@ -4,7 +4,11 @@ import { getPageMap } from "nextra/page-map";
 import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import "./globals.css";
 
-export async function generateMetadata({ params }: { params?: { slug?: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params?: { slug?: string };
+}): Promise<Metadata> {
   const slug = params?.slug ?? "";
   const title = slug ? decodeURIComponent(slug) : "Fancy Notes";
   const baseUrl = "https://fancy-notes.vercel.app";
@@ -36,8 +40,9 @@ export async function generateMetadata({ params }: { params?: { slug?: string } 
   };
 }
 
-
-const logo = <span className="hidden font-bold sm:inline-block">Fancy Notes</span>;
+const logo = (
+  <span className="hidden font-bold sm:inline-block">Fancy Notes</span>
+);
 const footer = <Footer>MIT {new Date().getFullYear()} © AREA44.</Footer>;
 const navbar = <Navbar logo={logo} />;
 
