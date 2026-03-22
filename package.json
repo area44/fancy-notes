@@ -22,19 +22,19 @@
     "check": "biome check --write ."
   },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.2.1",
-    "next": "^16.1.6",
+    "@tailwindcss/postcss": "^4.2.2",
+    "next": "^16.2.1",
     "nextra": "^4.6.1",
     "nextra-theme-docs": "^4.6.1",
     "pagefind": "^1.4.0",
     "postcss": "^8.5.8",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "tailwindcss": "^4.2.1"
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@area44/biome-config": "^2.3.3",
-    "@biomejs/biome": "^2.4.7",
+    "@biomejs/biome": "^2.4.8",
     "@types/node": "^24.12.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
