@@ -43,7 +43,11 @@ export async function generateMetadata({
 const logo = (
   <span className="hidden font-bold sm:inline-block">Fancy Notes</span>
 );
-const footer = <Footer>MIT {new Date().getFullYear()} © AREA44.</Footer>;
+const footer = (
+  <Footer suppressHydrationWarning>
+    MIT {new Date().getFullYear()} © AREA44.
+  </Footer>
+);
 const navbar = <Navbar logo={logo} />;
 
 export default async function RootLayout({ children }) {
