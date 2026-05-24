@@ -27,7 +27,7 @@
     "nextra": "^4.6.1",
     "nextra-theme-docs": "^4.6.1",
     "pagefind": "^1.5.2",
-    "postcss": "^8.5.14",
+    "postcss": "^8.5.15",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "tailwindcss": "^4.3.0"
@@ -36,7 +36,7 @@
     "@area44/biome-config": "^2.3.4",
     "@biomejs/biome": "^2.4.15",
     "@types/node": "^24.12.4",
-    "@types/react": "^19.2.14",
+    "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3",
     "typescript": "^6.0.3"
   }
