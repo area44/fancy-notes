@@ -1,0 +1,10 @@
+
+> @area44/fancy-notes@25.02.06 dev /app
+> next --turbopack
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+✓ Ready in 603ms
+- Experiments (use with caution):
+  · optimizePackageImports

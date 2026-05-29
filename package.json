@@ -16,6 +16,7 @@
     "dev": "next --turbopack",
     "start": "next start",
     "build": "next build",
+    "postinstall": "sed -i 's/children: reactNode,/children: reactNode.optional(),/' node_modules/nextra-theme-docs/dist/schemas.js",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
     "format": "biome format --write .",
     "lint": "biome lint --write .",
