@@ -23,18 +23,22 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.0",
+    "fumadocs-core": "^16.9.3",
+    "fumadocs-mdx": "^15.0.10",
+    "fumadocs-ui": "^16.9.3",
+    "lucide-react": "^1.17.0",
     "next": "^16.2.7",
-    "nextra": "^4.6.1",
-    "nextra-theme-docs": "^4.6.1",
     "pagefind": "^1.5.2",
     "postcss": "^8.5.15",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@area44/biome-config": "^2.3.4",
     "@biomejs/biome": "^2.4.16",
+    "@types/mdx": "^2.0.13",
     "@types/node": "^24.12.4",
     "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",

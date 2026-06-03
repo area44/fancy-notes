@@ -1,28 +1,54 @@
-import type { Metadata } from "next";
-import { generateStaticParamsFor, importPage } from "nextra/pages";
-import type { FC } from "react";
-import { useMDXComponents as getMDXComponents } from "@/mdx-components";
+import {
+  DocsBody,
+  DocsDescription,
+  DocsPage,
+  DocsTitle,
+} from "fumadocs-ui/page";
+import { notFound } from "next/navigation";
+import { source } from "@/lib/source";
 
-export const generateStaticParams = generateStaticParamsFor("mdxPath");
-
-type PageProps = Readonly<{
-  params: Promise<{
-    mdxPath: string[];
-  }>;
-}>;
-
-export async function generateMetadata(props: PageProps): Promise<Metadata> {
+export default async function Page(props: {
+  params: Promise<{ mdxPath?: string[] }>;
+}) {
   const params = await props.params;
-  const { metadata } = await importPage(params.mdxPath);
-  const title = metadata.title || "Fancy Notes";
+  const page = source.getPage(params.mdxPath);
+
+  if (!page) notFound();
+
+  const MDX = page.data.body;
+
+  return (
+    <DocsPage toc={page.data.toc} full={page.data.full}>
+      <DocsTitle>{page.data.title}</DocsTitle>
+      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsBody>
+        <MDX />
+      </DocsBody>
+    </DocsPage>
+  );
+}
+
+export async function generateStaticParams() {
+  return source.generateParams();
+}
+
+export async function generateMetadata(props: {
+  params: Promise<{ mdxPath?: string[] }>;
+}) {
+  const params = await props.params;
+  const page = source.getPage(params.mdxPath);
+
+  if (!page) return {};
+
+  const title = page.data.title || "Fancy Notes";
   const baseUrl = "https://fancy-notes.vercel.app";
   const ogImage = `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
-    ...metadata,
+    title,
+    description: page.data.description,
     openGraph: {
-      ...metadata.openGraph,
-      images: metadata.openGraph?.images || [
+      images: [
         {
           url: ogImage,
           width: 1200,
@@ -32,28 +58,8 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
       ],
     },
     twitter: {
-      ...metadata.twitter,
       card: "summary_large_image",
-      images: metadata.twitter?.images || [ogImage],
+      images: [ogImage],
     },
   };
 }
-
-const Wrapper = getMDXComponents({}).wrapper as FC<any>;
-
-const Page: FC<PageProps> = async (props) => {
-  const params = await props.params;
-  const {
-    default: MDXContent,
-    toc,
-    metadata,
-    sourceCode,
-  } = await importPage(params.mdxPath);
-  return (
-    <Wrapper toc={toc} metadata={metadata} sourceCode={sourceCode}>
-      <MDXContent {...props} params={params} />
-    </Wrapper>
-  );
-};
-
-export default Page;

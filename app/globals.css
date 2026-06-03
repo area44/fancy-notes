@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "nextra-theme-docs/style.css";
+@import "fumadocs-ui/style.css";
 
 body {
   font-feature-settings:
