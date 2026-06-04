@@ -5,3 +5,37 @@ title: YouTube Downloader
 # Download Videos and MP3s from YouTube
 
 ## Requirements
+
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) – Modern fork of youtube-dl
+- [ffmpeg](https://ffmpeg.org) – Required for audio processing and conversion
+
+<Callout type="info">
+  Ensure both <code>yt-dlp</code> and <code>ffmpeg</code> are installed and accessible from your terminal.
+  <code>yt-dlp</code> is a powerful tool with support for more sites, better performance, and additional features compared to older downloaders. <code>ffmpeg</code> is used to handle audio extraction and conversion.
+</Callout>
+
+## Download a Video from YouTube
+
+Use the following command to download a full video:
+
+```bash copy
+yt-dlp "<YouTube video URL>"
+```
+
+This downloads the best available quality by default.
+
+## Download an MP3 from YouTube
+
+To extract audio in MP3 format from a YouTube video:
+
+```bash copy
+yt-dlp --extract-audio --audio-format mp3 "<YouTube video URL>"
+```
+
+<Callout type="tip">
+  Replace <code>&lt;YouTube video URL&gt;</code> with the actual URL of the video you want to download.
+</Callout>
+
+<Callout type="info">
+  The resulting MP3 will be saved in your current working directory unless a different output path is specified using the <code>-o</code> flag.
+</Callout>

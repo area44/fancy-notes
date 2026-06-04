@@ -2,4 +2,71 @@
 title: Doc to Docx
 ---
 
-# Doc to Docx
+# Steps to Batch Convert Doc to Docx
+
+If you have many `.doc` files and need to convert them to the more modern `.docx` format, you can use a PowerShell script to automate the process using Microsoft Word.
+
+## Conversion Steps
+
+Follow these steps to perform the batch conversion:
+
+<Steps>
+{<h3>Step 1</h3>}
+
+Open **Notepad** or any text editor and paste the following PowerShell script:
+
+```powershell copy
+# Define the folder containing .doc files
+\$folderPath = "C:\path\to\your\folder"
+
+# Create a Word application object
+\$word = New-Object -ComObject Word.Application
+\$word.Visible = \$false
+
+# Get all .doc files in the folder
+\$files = Get-ChildItem -Path \$folderPath -Filter *.doc
+
+foreach (\$file in \$files) {
+    \$doc = \$word.Documents.Open(\$file.FullName)
+    \$newName = \$file.FullName + "x"
+    \$doc.SaveAs2(\$newName, 16) # 16 is the value for wdFormatXMLDocument (.docx)
+    \$doc.Close()
+    Write-Host "Converted: \$(\$file.Name) to \$(\$newName)"
+}
+
+\$word.Quit()
+```
+
+{<h3>Step 2</h3>}
+
+Replace `"C:\path\to\your\folder"` with the actual path to the folder where your `.doc` files are located.
+
+{<h3>Step 3</h3>}
+
+Save the file with a `.ps1` extension (e.g., `ConvertDocToDocx.ps1`).
+
+{<h3>Step 4</h3>}
+
+Right-click the saved `.ps1` file and select **Run with PowerShell**.
+
+</Steps>
+
+<Callout type="warning">
+  Make sure you have **Microsoft Word** installed on your computer, as this script uses Word's COM interface to perform the conversion.
+</Callout>
+
+## Before and After
+
+Here is an example of what the folder might look like before and after conversion:
+
+**Before Conversion:**
+![Before](/assets/230302_0215/01.png)
+
+**After Conversion:**
+![After](/assets/230302_0215/02.png)
+
+## Why Convert to Docx?
+
+- **Smaller File Size:** `.docx` files use ZIP compression, making them much smaller than `.doc` files.
+- **Better Compatibility:** `.docx` is an open standard and is better supported by modern word processors.
+- **Corrupt File Recovery:** The XML-based structure of `.docx` makes it easier to recover data if the file becomes corrupted.

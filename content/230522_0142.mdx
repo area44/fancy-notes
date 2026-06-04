@@ -2,4 +2,79 @@
 title: Git Tips
 ---
 
-# Git Tips
+# Useful Git Tips and Tricks
+
+Git is a powerful version control system, but its complexity can sometimes be overwhelming. Here are some useful tips to help you work more efficiently.
+
+## Configuration
+
+### Set your identity:
+
+```bash copy
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+```
+
+### Useful Aliases:
+
+Add these to your .gitconfig to save time:
+
+```bash copy
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+```
+
+## Undoing Changes
+
+### Undo the last commit (keep changes staged):
+
+```bash copy
+git reset --soft HEAD~1
+```
+
+### Undo the last commit (discard all changes):
+
+<Callout type="error">
+  Use this with caution! This will permanently delete your uncommitted changes.
+</Callout>
+
+```bash copy
+git reset --hard HEAD~1
+```
+
+### Discard changes to a specific file:
+
+```bash copy
+git checkout -- filename
+```
+
+## Branching
+
+### Create and switch to a new branch:
+
+```bash copy
+git checkout -b branch_name
+```
+
+### Delete a **local** branch:
+
+```bash copy
+git branch -d branch_name # Safe delete (checks if merged)
+git branch -D branch_name # Force delete (use with caution)
+```
+
+### Delete a **remote** branch:
+
+```bash
+git push origin --delete branch_name
+```
+
+This command tells Git to delete the branch from the remote repository (like GitHub or GitLab).
+
+## Resources
+
+* [GitHub Docs](https://docs.github.com/en)
+* [Git Cheat Sheet (PDF)](https://education.github.com/git-cheat-sheet-education.pdf)
+* [Clone All GitHub Repositories](https://stackoverflow.com/questions/19576742/how-to-clone-all-repos-at-once-from-github)

@@ -1,11 +1,12 @@
+import { source } from "@/lib/source";
 import {
+  DocsPage,
   DocsBody,
   DocsDescription,
-  DocsPage,
   DocsTitle,
 } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
-import { source } from "@/lib/source";
+import { useMDXComponents } from "@/mdx-components";
 
 export default async function Page(props: {
   params: Promise<{ mdxPath?: string[] }>;
@@ -22,7 +23,7 @@ export default async function Page(props: {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
-        <MDX />
+        <MDX components={useMDXComponents({})} />
       </DocsBody>
     </DocsPage>
   );
