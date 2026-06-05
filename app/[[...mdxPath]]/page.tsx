@@ -1,11 +1,11 @@
-import { source } from "@/lib/source";
 import {
-  DocsPage,
   DocsBody,
   DocsDescription,
+  DocsPage,
   DocsTitle,
 } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
+import { source } from "@/lib/source";
 import { useMDXComponents } from "@/mdx-components";
 
 export default async function Page(props: {
