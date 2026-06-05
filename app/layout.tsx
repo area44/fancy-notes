@@ -1,10 +1,13 @@
-import type { Metadata } from "next";
-import { Head } from "nextra/components";
-import { getPageMap } from "nextra/page-map";
-import { Footer, Layout, Navbar } from "nextra-theme-docs";
 import "./globals.css";
+import { RootProvider } from "fumadocs-ui/provider/next";
+import { Inter } from "next/font/google";
+import type { ReactNode } from "react";
 
-export const metadata: Metadata = {
+const inter = Inter({
+  subsets: ["latin"],
+});
+
+export const metadata = {
   title: {
     template: "%s | Fancy Notes",
     default: "Fancy Notes",
@@ -13,29 +16,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://fancy-notes.vercel.app"),
 };
 
-const logo = (
-  <span className="hidden font-bold sm:inline-block">Fancy Notes</span>
-);
-const footer = (
-  <Footer suppressHydrationWarning>
-    MIT {new Date().getFullYear()} © AREA44.
-  </Footer>
-);
-const navbar = <Navbar logo={logo} />;
-
-export default async function RootLayout({ children }) {
+export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
-      <Head />
-      <body>
-        <Layout
-          navbar={navbar}
-          pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/AREA44/fancy-notes/tree/main"
-          footer={footer}
-        >
-          {children}
-        </Layout>
+    <html lang="en" className={inter.className} suppressHydrationWarning>
+      <body className="flex flex-col min-h-screen">
+        <RootProvider>{children}</RootProvider>
       </body>
     </html>
   );

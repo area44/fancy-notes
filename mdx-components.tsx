@@ -1,11 +1,11 @@
-import { Callout, Steps } from "nextra/components";
-import { useMDXComponents as getThemeComponents } from "nextra-theme-docs";
+import { Callout } from "fumadocs-ui/components/callout";
+import { Steps } from "fumadocs-ui/components/steps";
+import defaultComponents from "fumadocs-ui/mdx";
+import type { MDXComponents } from "mdx/types";
 
-const themeComponents = getThemeComponents({});
-
-export function useMDXComponents(components) {
+export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    ...themeComponents,
+    ...defaultComponents,
     Callout,
     Steps,
     ...components,

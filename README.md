@@ -2,7 +2,7 @@
 
 This is a site collecting useful notes about anything you are finding. It is more than just a note-taking site. It’s a community of learners and doers who value useful notes and want to improve their skills and knowledge. Whether you’re a student, a professional, a hobbyist, or just someone who enjoys learning new things, this site is for you. Join [us](https://github.com/AREA44/fancy-notes) today and start collecting some notes about useful notes!
 
-Fancy Notes is built using [Nextra](https://nextra.site) - a simple, powerful and flexible site generation framework with everything you love from Next.js.
+Fancy Notes is built using [Fumadocs](https://fumadocs.com) - a simple, powerful and flexible site generation framework with everything you love from Next.js.
 
 ## Local development
 
@@ -21,9 +21,10 @@ To create a new note in Fancy Notes, follow these steps:
 
 1. Navigate to the `content` directory in the project's root folder.
 2. Create a new `.mdx` file with a unique name for your note.
-3. Open the newly created file in a text editor of your choice.
-4. Add your note content using MDX syntax. All images, videos, etc should be save in the `public` directory.
-5. Don't forget to save the file once you've finished adding your note content.
+3. Add YAML frontmatter with a `title` at the top of the file.
+4. Add your note content using MDX syntax. All images, videos, etc should be saved in the `public` directory.
+5. Add the filename (without extension) to `content/meta.json` to include it in the sidebar.
+6. Don't forget to save the file once you've finished adding your note content.
 
 Once you've created and saved your note, it will be available for viewing and searching within the Fancy Notes website.
 
