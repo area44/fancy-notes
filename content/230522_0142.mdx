@@ -2,10 +2,7 @@
 title: Git Tips
 ---
 
-
-# Git – Tips & Tricks
-
-## Start a New Git Repository
+## Start a new git repository
 
 Initialize and push a new Git repository:
 
@@ -18,7 +15,7 @@ git remote add origin https://github.com/OWNER/REPOSITORY
 git push -u origin main         # Push to remote main
 ````
 
-## Change the Remote Repository URL
+## Change the remote repository URL
 
 Update an existing remote URL:
 
@@ -26,7 +23,7 @@ Update an existing remote URL:
 git remote set-url origin https://github.com/OWNER/REPOSITORY
 ```
 
-## Cleanup & Optimize a Git Repository
+## Cleanup & optimize a git repository
 
 Free up space and optimize Git internals:
 
@@ -35,7 +32,7 @@ git reflog expire --all --expire=now
 git gc --prune=now --aggressive
 ```
 
-## Clone All GitHub Repositories (User or Org)
+## Clone all GitHub repositories (user or org)
 
 Works on **Windows**, **macOS**, or **Linux** using **Git Bash**:
 
@@ -55,16 +52,16 @@ curl "https://api.github.com/$CNTX/OWNER/repos?page=$PAGE&per_page=100" |
   GitHub API limits results to 100 per page. Increase the <code>PAGE</code> variable to fetch all repositories across multiple pages.
 </Callout>
 
-## Delete a Branch in Git
+## Delete a branch in git
 
-### Delete a **local** branch:
+### Delete a local branch
 
 ```bash copy
 git branch -d branch_name      # Safe delete
 git branch -D branch_name      # Force delete (use with caution)
 ```
 
-### Delete a **remote** branch:
+### Delete a remote branch
 
 ```bash copy
 git push origin --delete branch_name
