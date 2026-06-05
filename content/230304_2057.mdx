@@ -9,18 +9,23 @@ title: Google Drive PDF
 Follow these simple steps to download a view-only protected PDF from Google Drive using Chrome browser:
 
 <Steps>
+<Step>
 ### Open PDF in Chrome
 
 Open the PDF file in your Chrome browser. Wait for the file to load completely, then scroll to the bottom of the page.
 
 <Image src="/assets/230304_2057/01.png" alt="Open PDF" width={1200} height={630} />
+</Step>
 
+<Step>
 ### Open Developer Console
 
 Open the **Developer Console** by pressing `Ctrl` + `Shift` + `C` (`F12`) on Windows or `Cmd` + `Shift` + `C` on Mac. Then, click the **Console** tab.
 
 <Image src="/assets/230304_2057/02.png" alt="Developer Console" width={1200} height={630} />
+</Step>
 
+<Step>
 ### Execute the script
 
 Paste the following script into the **Developer Console** and press `Enter`:
@@ -53,12 +58,15 @@ document.body.appendChild(jspdf);
 ```
 
 <Image src="/assets/230304_2057/03.png" alt="Execute Script" width={1200} height={630} />
+</Step>
 
+<Step>
 ### Download the PDF
 
 Once the process is complete, the PDF file will be automatically downloaded.
 
 <Image src="/assets/230304_2057/04.png" alt="Automatic Download" width={1200} height={630} />
+</Step>
 
 </Steps>
 
@@ -67,28 +75,36 @@ Once the process is complete, the PDF file will be automatically downloaded.
 The simple JavaScript method works well for basic PDFs, but if you're dealing with large or complex PDFs, the download might not work as expected. For better quality and handling of complex PDFs, try the advanced method.
 
 <Steps>
+<Step>
 ### Download the Downloader Script
 
 Download the [Google Drive PDF Downloader](https://github.com/zeltox/Google-Drive-PDF-Downloader/archive/refs/heads/master.zip) file and extract its contents. Open the `Method_1_Script.js` file, copy the script inside, and paste it into the **Developer Console**, then press `Enter`.
 
 <Image src="/assets/230304_2057/05.png" alt="Downloader Script" width={1200} height={630} />
+</Step>
 
+<Step>
 ### Save and Move the Data File
 
 After a few seconds, the browser will prompt you to save a file with the `.PDF_DataFile` extension. Save the file and move it to the `Input` directory located inside the folder you downloaded.
 
 <Image src="/assets/230304_2057/06.png" alt="Save Data File" width={1200} height={630} />
 <Image src="/assets/230304_2057/07.png" alt="Move to Input" width={1200} height={630} />
+</Step>
 
+<Step>
 ### Generate the PDF
 
 If you're using **Windows**, navigate to the `Windows` folder and double-click on `GeneratePDF.cmd`. For **Linux**, go to the `Linux` folder and execute `GeneratePDF`.
 
 <Image src="/assets/230304_2057/08.png" alt="Run Generator" width={1200} height={630} />
+</Step>
 
+<Step>
 ### Success!
 
 Once the process is complete, you’ll see a success message. Check the `Output` folder to find the downloaded PDF.
+</Step>
 
 </Steps>
 
