@@ -1,13 +1,22 @@
 import { Callout } from "fumadocs-ui/components/callout";
-import { Steps } from "fumadocs-ui/components/steps";
+import { Step, Steps } from "fumadocs-ui/components/steps";
 import defaultComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
+import NextImage, { type ImageProps } from "next/image";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...defaultComponents,
     Callout,
     Steps,
+    Step,
+    Image: (props: ImageProps) => (
+      <NextImage
+        sizes="100vw"
+        style={{ width: "100%", height: "auto" }}
+        {...props}
+      />
+    ),
     ...components,
   };
 }
