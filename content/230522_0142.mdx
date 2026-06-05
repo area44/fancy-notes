@@ -2,72 +2,71 @@
 title: Git Tips
 ---
 
-# Useful Git Tips and Tricks
 
-Git is a powerful version control system, but its complexity can sometimes be overwhelming. Here are some useful tips to help you work more efficiently.
+# Git – Tips & Tricks
 
-## Configuration
+## Start a New Git Repository
 
-### Set your identity:
-
-```bash copy
-git config --global user.name "Your Name"
-git config --global user.email "your.email@example.com"
-```
-
-### Useful Aliases:
-
-Add these to your .gitconfig to save time:
+Initialize and push a new Git repository:
 
 ```bash copy
-git config --global alias.co checkout
-git config --global alias.br branch
-git config --global alias.ci commit
-git config --global alias.st status
-```
+git init                        # Initialize a new repo
+git add .                       # Stage all files
+git commit -m "first commit"    # Initial commit
+git branch -M main              # Rename branch to main
+git remote add origin https://github.com/OWNER/REPOSITORY
+git push -u origin main         # Push to remote main
+````
 
-## Undoing Changes
+## Change the Remote Repository URL
 
-### Undo the last commit (keep changes staged):
+Update an existing remote URL:
 
 ```bash copy
-git reset --soft HEAD~1
+git remote set-url origin https://github.com/OWNER/REPOSITORY
 ```
 
-### Undo the last commit (discard all changes):
+## Cleanup & Optimize a Git Repository
 
-<Callout type="error">
-  Use this with caution! This will permanently delete your uncommitted changes.
+Free up space and optimize Git internals:
+
+```bash copy
+git reflog expire --all --expire=now
+git gc --prune=now --aggressive
+```
+
+## Clone All GitHub Repositories (User or Org)
+
+Works on **Windows**, **macOS**, or **Linux** using **Git Bash**:
+
+```bash copy
+CNTX={users|orgs}; PAGE=1
+curl "https://api.github.com/$CNTX/OWNER/repos?page=$PAGE&per_page=100" |
+  grep -e 'clone_url' |
+  cut -d \" -f 4 |
+  xargs -L1 git clone
+```
+
+<Callout type="info">
+  Set <code>CNTX=users</code> to download your personal repositories, or <code>CNTX=orgs</code> for your organization’s repositories.
 </Callout>
 
-```bash copy
-git reset --hard HEAD~1
-```
+<Callout type="warning">
+  GitHub API limits results to 100 per page. Increase the <code>PAGE</code> variable to fetch all repositories across multiple pages.
+</Callout>
 
-### Discard changes to a specific file:
-
-```bash copy
-git checkout -- filename
-```
-
-## Branching
-
-### Create and switch to a new branch:
-
-```bash copy
-git checkout -b branch_name
-```
+## Delete a Branch in Git
 
 ### Delete a **local** branch:
 
 ```bash copy
-git branch -d branch_name # Safe delete (checks if merged)
-git branch -D branch_name # Force delete (use with caution)
+git branch -d branch_name      # Safe delete
+git branch -D branch_name      # Force delete (use with caution)
 ```
 
 ### Delete a **remote** branch:
 
-```bash
+```bash copy
 git push origin --delete branch_name
 ```
 

@@ -2,71 +2,61 @@
 title: Doc to Docx
 ---
 
-# Steps to Batch Convert Doc to Docx
 
-If you have many `.doc` files and need to convert them to the more modern `.docx` format, you can use a PowerShell script to automate the process using Microsoft Word.
+# Batch Convert `.doc` Format Files to `.docx` Using VBA Code
 
-## Conversion Steps
+## Step-by-Step Guide
 
-Follow these steps to perform the batch conversion:
+In this section, we’ll show you how to use VBA code to batch convert `.doc` files to `.docx` files in a specific folder. Just follow the steps below:
 
 <Steps>
 {<h3>Step 1</h3>}
 
-Open **Notepad** or any text editor and paste the following PowerShell script:
-
-```powershell copy
-# Define the folder containing .doc files
-\$folderPath = "C:\path\to\your\folder"
-
-# Create a Word application object
-\$word = New-Object -ComObject Word.Application
-\$word.Visible = \$false
-
-# Get all .doc files in the folder
-\$files = Get-ChildItem -Path \$folderPath -Filter *.doc
-
-foreach (\$file in \$files) {
-    \$doc = \$word.Documents.Open(\$file.FullName)
-    \$newName = \$file.FullName + "x"
-    \$doc.SaveAs2(\$newName, 16) # 16 is the value for wdFormatXMLDocument (.docx)
-    \$doc.Close()
-    Write-Host "Converted: \$(\$file.Name) to \$(\$newName)"
-}
-
-\$word.Quit()
-```
+Gather all the `.doc` files that you want to convert into a single folder.
 
 {<h3>Step 2</h3>}
 
-Replace `"C:\path\to\your\folder"` with the actual path to the folder where your `.doc` files are located.
+Open Microsoft Word, and press `Alt` + `F11` to open the Microsoft Visual Basic for Applications (VBA) window.
 
 {<h3>Step 3</h3>}
 
-Save the file with a `.ps1` extension (e.g., `ConvertDocToDocx.ps1`).
+In the VBA window, click `Insert` > `Module`. Then, copy and paste the following VBA code into the module:
+
+```bat copy
+Sub ConvertDocToDocx()
+'Updated by ExtendOffice 20181128
+  Dim xDlg As FileDialog
+  Dim xFolder As Variant
+  Dim xFileName As String
+  Application.ScreenUpdating = False
+  Set xDlg = Application.FileDialog(msoFileDialogFolderPicker)
+  If xDlg.Show <> -1 Then Exit Sub
+  xFolder = xDlg.SelectedItems(1) + "\"
+  xFileName = Dir(xFolder & "*.doc", vbNormal)
+  While xFileName <> ""
+    Documents.Open FileName:=xFolder & xFileName, _
+      ConfirmConversions:=False, ReadOnly:=False, AddToRecentFiles:=False, _
+      PasswordDocument:="", PasswordTemplate:="", Revert:=False, _
+      WritePasswordDocument:="", WritePasswordTemplate:="", Format:= _
+      wdOpenFormatAuto, XMLTransform:=""
+    ActiveDocument.SaveAs xFolder & Replace(xFileName, "doc", "docx"), wdFormatDocumentDefault
+    ActiveDocument.Close
+    xFileName = Dir()
+  Wend
+  Application.ScreenUpdating = True
+End Sub
+```
+
+![VBA Code](/assets/230302_0215/01.png)
 
 {<h3>Step 4</h3>}
 
-Right-click the saved `.ps1` file and select **Run with PowerShell**.
+Press the `F5` key to run the code. In the window that appears, select the folder containing your `.doc` files and click **OK**. The script will automatically convert all `.doc` files to `.docx` format.
+
+![Select Folder](/assets/230302_0215/02.png)
 
 </Steps>
 
-<Callout type="warning">
-  Make sure you have **Microsoft Word** installed on your computer, as this script uses Word's COM interface to perform the conversion.
-</Callout>
+## Resources
 
-## Before and After
-
-Here is an example of what the folder might look like before and after conversion:
-
-**Before Conversion:**
-![Before](/assets/230302_0215/01.png)
-
-**After Conversion:**
-![After](/assets/230302_0215/02.png)
-
-## Why Convert to Docx?
-
-- **Smaller File Size:** `.docx` files use ZIP compression, making them much smaller than `.doc` files.
-- **Better Compatibility:** `.docx` is an open standard and is better supported by modern word processors.
-- **Corrupt File Recovery:** The XML-based structure of `.docx` makes it easier to recover data if the file becomes corrupted.
+1. [Batch Convert DOC to DOCX with VBA – ExtendOffice](https://www.extendoffice.com/documents/word/5601-word-batch-convert-doc-to-docx.html)
