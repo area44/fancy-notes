@@ -1,5 +1,10 @@
 packages:
   - '.'
 allowBuilds:
-  esbuild: true
-  sharp: true
+  esbuild: false
+  sharp: false
+minimumReleaseAge: 0
+shellEmulator: true
+trustLockfile: true
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 604800
