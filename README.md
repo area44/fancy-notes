@@ -40,6 +40,37 @@ We welcome contributions from the community to enhance Fancy Notes. If you'd lik
 
 We appreciate your contributions!
 
+## Google AdSense Integration
+
+To enable Google AdSense to monetize your site, follow these instructions:
+
+### 1. Setup Environment Variables
+Set your Google AdSense Publisher Client ID in your deployment environment (such as Vercel) or your local `.env.local` file:
+```env
+NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-XXXXXXXXXXXXXXXX
+```
+*(Replace `ca-pub-XXXXXXXXXXXXXXXX` with your actual Google AdSense publisher ID).*
+
+### 2. Configure `ads.txt`
+Google AdSense requires an `ads.txt` file at the root level.
+We have provided a template file in `public/ads.txt`. Make sure to open it and replace the placeholder publisher ID with your own:
+```text
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+```
+
+### 3. Displaying Ad Units in MDX Notes
+You can display custom, responsive ad units manually inside any of your note files (`.mdx`) using the `<Adsense />` component. Simply specify the numeric `adSlot` ID of the ad unit you created in your AdSense dashboard:
+
+```mdx
+# My Fancy Note
+
+Here is some notes about interesting topics...
+
+<Adsense adSlot="1234567890" />
+
+More note content continues here...
+```
+
 ## License
 
 Fancy Notes is released under the [MIT License](LICENSE).
