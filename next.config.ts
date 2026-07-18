@@ -1,11 +1,15 @@
 import { createMDX } from "fumadocs-mdx/next";
+import type { NextConfig } from "next";
 
 const withMDX = createMDX();
 
-/** @type {import('next').NextConfig} */
-const config = {
+const config: NextConfig = {
   reactStrictMode: true,
   transpilePackages: ["fumadocs-ui"],
+  typedRoutes: true,
+  experimental: {
+    useTypeScriptCli: true,
+  },
 };
 
 export default withMDX(config);

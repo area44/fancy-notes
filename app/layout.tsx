@@ -18,11 +18,14 @@ export const metadata = {
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const adClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+  const adClient =
+    process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-2837724975096238";
 
   return (
     <html lang="en" className={inter.className} suppressHydrationWarning>
-      <head>
+      <head />
+      <body className="flex flex-col min-h-screen">
+        <RootProvider>{children}</RootProvider>
         {adClient && (
           <Script
             id="adsense"
@@ -31,9 +34,6 @@ export default function Layout({ children }: { children: ReactNode }) {
             crossOrigin="anonymous"
           />
         )}
-      </head>
-      <body className="flex flex-col min-h-screen">
-        <RootProvider>{children}</RootProvider>
       </body>
     </html>
   );

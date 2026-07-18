@@ -4,12 +4,13 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 interface AdsenseProps {
-  adSlot: string;
+  adSlot?: string;
 }
 
 export default function Adsense({ adSlot }: AdsenseProps) {
   const pathname = usePathname();
-  const adClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+  const adClient =
+    process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-2837724975096238";
 
   useEffect(() => {
     if (!adClient) return;
@@ -33,7 +34,7 @@ export default function Adsense({ adSlot }: AdsenseProps) {
         className="adsbygoogle"
         style={{ display: "block", width: "100%", minHeight: "250px" }}
         data-ad-client={adClient}
-        data-ad-slot={adSlot}
+        {...(adSlot ? { "data-ad-slot": adSlot } : {})}
         data-ad-format="auto"
         data-full-width-responsive="true"
       />
