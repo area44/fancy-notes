@@ -6,6 +6,7 @@ import {
 } from "fumadocs-ui/page";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Adsense from "@/app/components/Adsense";
 import { source } from "@/lib/source";
 import { useMDXComponents } from "@/mdx-components";
 
@@ -25,6 +26,7 @@ export default async function Page(props: {
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         <MDX components={useMDXComponents({})} />
+        <Adsense />
       </DocsBody>
     </DocsPage>
   );

@@ -1,0 +1,2 @@
+# Google AdSense authorized sellers configuration
+google.com, pub-2837724975096238, DIRECT, f08c47fec0942fa0
