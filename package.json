@@ -27,7 +27,7 @@
     "fumadocs-mdx": "^15.2.0",
     "fumadocs-ui": "^16.11.5",
     "lucide-react": "^1.24.0",
-    "next": "16.3.0-canary.89",
+    "next": "^16.3.0-canary.89",
     "pagefind": "^1.5.2",
     "postcss": "^8.5.19",
     "react": "^19.2.7",
@@ -42,6 +42,6 @@
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "typescript": "7.0.2"
+    "typescript": "^7.0.2"
   }
 }
