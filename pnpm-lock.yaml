@@ -30,7 +30,7 @@ importers:
         specifier: ^1.5.2
         version: 1.5.2
       postcss:
-        specifier: ^8.5.22
+        specifier: ^8.5.23
         version: 8.5.23
       react:
         specifier: ^19.2.8
