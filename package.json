@@ -23,23 +23,23 @@
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.3",
-    "fumadocs-core": "^16.15.9",
-    "fumadocs-mdx": "^15.4.0",
-    "fumadocs-ui": "^16.15.9",
-    "lucide-react": "^1.45.0",
+    "fumadocs-core": "^16.15.11",
+    "fumadocs-mdx": "^15.4.1",
+    "fumadocs-ui": "^16.15.11",
+    "lucide-react": "^1.47.0",
     "next": "^16.3.5",
     "pagefind": "^1.5.2",
     "postcss": "^8.5.28",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "tailwindcss": "^4.3.3",
-    "zod": "^4.6.2"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@area44/biome-config": "^2.3.4",
-    "@biomejs/biome": "^2.5.13",
+    "@biomejs/biome": "^2.5.14",
     "@types/mdx": "^2.0.14",
-    "@types/node": "^24.13.4",
+    "@types/node": "^24.13.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "typescript": "^7.0.2"
