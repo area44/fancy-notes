@@ -1,8 +1,5 @@
 {
   "github": {
     "silent": true
-  },
-  "env": {
-    "VERCEL_DEEP_CLONE": "true"
   }
 }
