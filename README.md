@@ -18,7 +18,6 @@ Now the site live at http://localhost:3000
 ## Creating a Note
 
 To create a new note in Fancy Notes, follow these steps:
-
 1. Navigate to the `content` directory in the project's root folder.
 2. Create a new `.mdx` file with a unique name for your note.
 3. Add YAML frontmatter with a `title` at the top of the file.
@@ -31,7 +30,6 @@ Once you've created and saved your note, it will be available for viewing and se
 ## Contributing
 
 We welcome contributions from the community to enhance Fancy Notes. If you'd like to contribute, please follow these steps:
-
 1. Fork the repository from [GitHub](https://github.com/AREA44/fancy-notes).
 2. Create a new branch for your feature or bug fix.
 3. Make your changes and ensure they are thoroughly tested.
